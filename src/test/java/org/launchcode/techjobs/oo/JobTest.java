@@ -34,4 +34,25 @@ public class JobTest {
         Job testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(testJob2.equals(testJob1));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithANewLine() {
+        String newLine = System.lineSeparator();
+        Job test1 = new Job("test", new Employer("test"), new Location("test"), new PositionType("test"), new CoreCompetency("test"));
+        assertTrue(test1.toString().startsWith(newLine));
+        assertTrue(test1.toString().endsWith(newLine));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String newLine = System.lineSeparator();
+        String expectedOutput = newLine + "ID: 1" + newLine +
+                "Name: test" + newLine +
+                "Employer: test" + newLine +
+                "Location: test" + newLine +
+                "Position Type: test" + newLine +
+                "Core Competency: test" +  newLine;
+        Job test1 = new Job("test", new Employer("test"), new Location("test"), new PositionType("test"), new CoreCompetency("test"));
+
+    }
 }

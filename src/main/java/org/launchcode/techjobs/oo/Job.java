@@ -21,6 +21,7 @@ public class Job {
         id = nextId;
         nextId++;
     }
+
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -93,6 +94,54 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    @Override
+    public String toString() {
+        String newLine = System.lineSeparator();
+        String dataNotAvailable = "Data not available";
+        String nameString;
+        String employerString;
+        String locationString;
+        String positionTypeString;
+        String coreCompetencyString;
+        if (name.isEmpty()) {
+            nameString = dataNotAvailable;
+        } else {
+            nameString = name;
+        }
+        if (String.valueOf(employer).isEmpty()) {
+            employerString = dataNotAvailable;
+        } else {
+            employerString = String.valueOf(employer);
+        }
+        if (String.valueOf(location).isEmpty()) {
+            locationString = dataNotAvailable;
+        } else {
+            locationString = String.valueOf(location);
+        }
+        if (String.valueOf(positionType).isEmpty()) {
+            positionTypeString = dataNotAvailable;
+        } else {
+            positionTypeString = String.valueOf(positionType);
+        }
+        if (String.valueOf(coreCompetency).isEmpty()) {
+            coreCompetencyString = dataNotAvailable;
+        } else {
+            coreCompetencyString = String.valueOf(coreCompetency);
+        }
+        if (name.isEmpty() && String.valueOf(employer).isEmpty() && String.valueOf(location).isEmpty() && String.valueOf(positionType).isEmpty() && String.valueOf(coreCompetency).isEmpty()) {
+            return newLine +
+                    "OOPS! This job does not seem to exist." + newLine;
+        } else {
+            return newLine +
+                    "ID: " + id + newLine +
+                    "Name: " + name + newLine +
+                    "Employer: " + employerString + newLine +
+                    "Location: " + locationString + newLine +
+                    "Position Type: " + positionTypeString + newLine +
+                    "Core Competency: " + coreCompetencyString + newLine;
+        }
     }
 }
 
