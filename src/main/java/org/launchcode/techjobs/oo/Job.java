@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -98,7 +100,6 @@ public class Job {
 
     @Override
     public String toString() {
-        String newLine = System.lineSeparator();
         String dataNotAvailable = "Data not available";
         String nameString;
         String employerString;
@@ -131,16 +132,16 @@ public class Job {
             coreCompetencyString = String.valueOf(coreCompetency);
         }
         if (name.isEmpty() && String.valueOf(employer).isEmpty() && String.valueOf(location).isEmpty() && String.valueOf(positionType).isEmpty() && String.valueOf(coreCompetency).isEmpty()) {
-            return newLine +
-                    "OOPS! This job does not seem to exist." + newLine;
+            return lineSeparator() +
+                    "OOPS! This job does not seem to exist." + lineSeparator();
         } else {
-            return newLine +
-                    "ID: " + id + newLine +
-                    "Name: " + name + newLine +
-                    "Employer: " + employerString + newLine +
-                    "Location: " + locationString + newLine +
-                    "Position Type: " + positionTypeString + newLine +
-                    "Core Competency: " + coreCompetencyString + newLine;
+            return lineSeparator() +
+                    "ID: " + id + lineSeparator() +
+                    "Name: " + nameString + lineSeparator() +
+                    "Employer: " + employerString + lineSeparator() +
+                    "Location: " + locationString + lineSeparator()  +
+                    "Position Type: " + positionTypeString + lineSeparator() +
+                    "Core Competency: " + coreCompetencyString + lineSeparator();
         }
     }
 }
